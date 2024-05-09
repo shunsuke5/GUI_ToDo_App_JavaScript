@@ -17,5 +17,5 @@ function appendTask() {
 }
 
 function completeTask() {
-    // taskCompleteButton.parentNode.removeChild(taskCompleteButton)
+    taskContent.remove();
 }

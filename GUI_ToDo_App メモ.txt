@@ -22,7 +22,32 @@
 　　　つまり、document.body.append(taskCompleteButton);　を　taskContent.appendChild(taskCompleteButton);
 　　　とすることで下から右に持ってくることができた。
 
+###20240509###
+
+・以下のようにタスク内容の子要素に完了ボタンをつけるのではなく、最初にdivを定義してその子要素として
+　タスク内容とボタンを持ってくる、でもいいかもしれない
+
+    const taskList = document.createElement("div");
+    tasklist.setAttribute("class", "taskList");
+    body.appendChild(taskList)
+
+    const taskContent = document.createElement("p");
+    taskContent.textContent = taskText.value;
+    taskList.appendChild(taskContent);
+
+    const completeButton = document.createElement("button");
+    completeButton.textContent = "完了";
+    taskList.appendChild(completeButton)
+
+    taskList.parentNode.removeChild(taskList);
+
+　なんかうまくいかないので一旦保留
+
+・taskCompleteButton.addEventListener("click", completeTask);　をどこに書けば良いか？
+　また、「押された完了ボタンとその親要素のタスク」を指定するにはどういったプログラムをかけばよいか？
+
 ・
+
 
 [進捗]
 JavaScriptのチュートリアル
