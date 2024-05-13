@@ -1,0 +1,17 @@
+.taskAppend {
+    margin: 0 auto;
+}
+
+.taskText {
+    width: 500px;
+}
+
+.taskList p {
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.taskList button {
+    margin-left: 30px;
+}

@@ -1,21 +1,40 @@
 const taskText = document.querySelector(".taskText");
-const taskAppendButton = document.querySelector(".taskAppend");
-let taskContent;
-let taskCompleteButton;
+const taskAppendButton = document.querySelector("button");
+const taskList = document.querySelector(".taskList");
 
-taskAppendButton.addEventListener("click", appendTask);
-
-function appendTask() {
-    taskContent = document.createElement("p");
+taskAppendButton.addEventListener("click", () => {
+    if (taskText.value === "") {
+        return;
+    }
+    const taskContent = document.createElement("p");
     taskContent.textContent = taskText.value;
-    document.body.append(taskContent);
+    taskList.appendChild(taskContent);
     
-    taskCompleteButton = document.createElement("button");
-    taskCompleteButton.textContent = "完了";
+    const taskCompleteButton = document.createElement("button");
     taskContent.appendChild(taskCompleteButton);
-    taskCompleteButton.addEventListener("click", completeTask);
-}
+    taskCompleteButton.textContent = "完了";
 
-function completeTask() {
-    taskContent.remove();
-}
+    taskCompleteButton.addEventListener("click", () => {
+        taskContent.remove();
+    });
+});
+
+taskText.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter") {
+        return;
+    }
+    if (taskText.value === "") {
+        return;
+    }
+    const taskContent = document.createElement("p");
+    taskContent.textContent = taskText.value;
+    taskList.appendChild(taskContent);
+    
+    const taskCompleteButton = document.createElement("button");
+    taskContent.appendChild(taskCompleteButton);
+    taskCompleteButton.textContent = "完了";
+
+    taskCompleteButton.addEventListener("click", () => {
+        taskContent.remove();
+    });
+})
