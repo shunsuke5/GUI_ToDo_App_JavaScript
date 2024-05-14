@@ -69,7 +69,21 @@
 　分けて実装し、それをaddEventListener()で呼び出す形で考えていたが、そもそもそれがよくなかった。
 　JavaScriptは一連の動作としてイベントを繋げて記述するのがベストなのかなと感じた。
 
-・
+###20240514###
+
+・チュートリアルの最後でIndexedDBについて学び、ToDoリストの内容も保存できたら
+　便利だなと感じたため、一応取り入れられるようにコードを真似して書いてみる。
+
+・Uncaught DOMException: Failed to execute 'transaction' on 'IDBDatabase': One of the specified object stores was not found.
+    at displayData (file:///C:/Users/Owner/JavaScript_Program/GUI_ToDo_App/GUI_ToDo_App_JavaScript/main.js:61:8)
+    at IDBOpenDBRequest.<anonymous> (file:///C:/Users/Owner/JavaScript_Program/GUI_ToDo_App/GUI_ToDo_App_JavaScript/main.js:18:5)
+
+　上記のように表示されたエラーについて、インターネットで調べてみると下記のサイトに辿り着いた。
+
+　https://github.com/localForage/localForage/issues/91
+
+　データベースの名前に大文字を含めると同じエラーが出た人を見つけた。この時のデータベース名は「ToDo_db」としていたため、
+　試しにデータベース名をTodo → todo にしたところ、エラーが消えた。このエラー以外にエラーは出ず、今のところ想定通りに動いている。
 
 [進捗]
 JavaScriptのチュートリアル
